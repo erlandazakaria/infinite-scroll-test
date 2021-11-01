@@ -17,10 +17,10 @@ const App = () => {
       <Header />
       <div className="content">
         <Switch>
-          <Route exact path="/">
+          <Route exact path="/infinite-scroll-test/">
             <MovieList />
           </Route>
-          <Route path="/movie-detail/:id">
+          <Route path="/infinite-scroll-test/movie-detail/:id">
             <MovieDetail />
           </Route>
         </Switch>
