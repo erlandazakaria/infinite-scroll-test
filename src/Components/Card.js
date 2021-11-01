@@ -17,7 +17,7 @@ const Card = ({data}) => {
           <div>{`Year: ${data.Year}`}</div>
           <div>{`Type: ${data.Type}`}</div>
         </div>
-        <div style={{alignSelf: "flex-end"}} onClick={() => history.push(`/movie-detail/${data.imdbID}`)}>Detail</div>
+        <div style={{alignSelf: "flex-end"}} onClick={() => history.push(`/infinite-scroll-test/movie-detail/${data.imdbID}`)}>Detail</div>
       </div>
     </div>
   );
