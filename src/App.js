@@ -1,23 +1,30 @@
-import logo from './logo.svg';
-import './App.css';
+import { Switch, Route } from "react-router-dom";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+import { useModal } from "./Contexts/Modal";
+
+import Header from "./Components/Header";
+import Modal from "./Components/Modal";
+
+import MovieList from "./Pages/MovieList";
+import MovieDetail from "./Pages/MovieDetail";
+
+const App = () => {
+  const { modal, closeModal } = useModal();
+
+  return(
+    <div className="container">
+      {modal ? <Modal data={modal} handleClick={closeModal} /> : null}
+      <Header />
+      <div className="content">
+        <Switch>
+          <Route exact path="/">
+            <MovieList />
+          </Route>
+          <Route path="/movie-detail/:id">
+            <MovieDetail />
+          </Route>
+        </Switch>
+      </div>
     </div>
   );
 }
